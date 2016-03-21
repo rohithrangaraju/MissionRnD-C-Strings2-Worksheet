@@ -12,5 +12,50 @@ Note:Dont modify original string Neglect Spaces at the right end and at left end
 
 char * get_last_word(char * str){
 
-	return NULL;
+	int i;
+	for (i = 0; str[i] != '\0'; i++);
+	if (i == 0)return "\0";
+	i--;
+
+	if (str[i] != ' '){
+		int count = 0;
+		while (str[i] != ' '&&i != -1){
+			i--;
+			count++;
+		}
+		char *string = (char*)calloc(count + 1, sizeof(char));
+		int j = 0; i++;
+		for (; str[i] != '\0'; i++){
+			*(string + j) = str[i];
+			j++;
+		}
+		string[j] = '\0';
+		return string;
+
+
+	}
+	else{
+		//printf("sdsd");
+		while (i--){
+			if (str[i] != ' ')break;
+		}
+		//printf("%d",i);
+		int count = 1;
+		while (str[i] != ' '&&i != -1){
+			i--;
+			count++;
+		}
+		char *string = (char*)calloc(count + 1, sizeof(char));
+		int j = 0; i++;
+
+		if (i == 0) return "";
+
+
+		for (; i <= count; i++){
+			*(string + j) = str[i];
+			j++;
+		}
+		string[j] = '\0';
+		return string;
+	}
 }

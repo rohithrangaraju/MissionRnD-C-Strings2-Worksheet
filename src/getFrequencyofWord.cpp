@@ -22,7 +22,6 @@ int count_word_in_str_way_1(char *str, char *word){
 	i = j = 0;
 	//printf("%d",m);
 	int count = 0;
-	if (n != 1){
 		while (i < m){
 			if (str[i] == word[j]){
 				i++;
@@ -33,31 +32,16 @@ int count_word_in_str_way_1(char *str, char *word){
 
 				count++;
 				j = 0;
-				i = i - 1;
+				if (n != 1){
+					i = i - 1;
+				}
 			}
 			else if (str[i] != word[j]){
 				i = i + 1;
 			}
 		}
-	}
-	else{
-		while (i < m){
-			if (str[i] == word[j]){
-				i++;
-				j++;
 
-			}
-			if (j == n){
-
-				count++;
-				j = 0;
-			}
-			else if (str[i] != word[j]){
-				i = i + 1;
-			}
-		}
-		
-	}
+	
 	return count;
 	
 }

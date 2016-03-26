@@ -10,7 +10,8 @@ Objectives of C-Strings-2 Lesson:
 ->New ways of Handling Strings
 
 */
-
+#include<stdio.h>
+int count_word_in_str_way_1(char *str, char *word);
 
 int main(){
 
@@ -22,6 +23,13 @@ int main(){
 	//Test getSubstring
 
 	//Test getLastWord
+	char s[100];
+	char s1[100];
+	gets(s);
+	gets(s1);
+	int x=count_word_in_str_way_1(s, s1);
+	printf("%d", x);
+	getchar();
 
 	return 0;
 }

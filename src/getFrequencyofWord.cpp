@@ -22,27 +22,44 @@ int count_word_in_str_way_1(char *str, char *word){
 	i = j = 0;
 	//printf("%d",m);
 	int count = 0;
-	while (i<m){
-		if (str[i] == word[j]){
-			//if (str[i + 1] == word[j])count++;
-			i++;
-			j++;
-			
-		}
-		if (j == n){
+	if (n != 1){
+		while (i < m){
+			if (str[i] == word[j]){
+				i++;
+				j++;
 
-			count++;
-			j = 0;
-		}
-		else if (str[i] != word[j]){
-			i = i + 1;
+			}
+			if (j == n){
+
+				count++;
+				j = 0;
+				i = i - 1;
+			}
+			else if (str[i] != word[j]){
+				i = i + 1;
+			}
 		}
 	}
-	int x = 1;
-	for (i = 0; word[i] != '\0'; i++){
-		if (word[i] == word[i + 1])x++;
+	else{
+		while (i < m){
+			if (str[i] == word[j]){
+				i++;
+				j++;
+
+			}
+			if (j == n){
+
+				count++;
+				j = 0;
+			}
+			else if (str[i] != word[j]){
+				i = i + 1;
+			}
+		}
+		
 	}
-	return count*x;
+	return count;
+	
 }
 
 int count_word_int_str_way_2_recursion(char *str, char *word){

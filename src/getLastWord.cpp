@@ -31,8 +31,6 @@ char * get_last_word(char * str){
 		}
 		string[j] = '\0';
 		return string;
-
-
 	}
 	else{
 		//printf("sdsd");
@@ -40,16 +38,15 @@ char * get_last_word(char * str){
 			if (str[i] != ' ')break;
 		}
 		//printf("%d",i);
+		i++;
+		if (i == 0) return "";
 		int count = 1;
 		while (str[i] != ' '&&i != -1){
 			i--;
 			count++;
 		}
 		char *string = (char*)calloc(count + 1, sizeof(char));
-		int j = 0; i++;
-
-		if (i == 0) return "";
-
+		int j = 0;
 
 		for (; i <= count; i++){
 			*(string + j) = str[i];
